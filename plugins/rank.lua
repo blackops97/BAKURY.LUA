@@ -7,7 +7,7 @@ local setowner = redis:get('setowner'..msg.chat_id_)
 local promote = redis:get('promote'..msg.chat_id_)
 local demote = redis:get('demote'..msg.chat_id_)
 if addgroup then
-    if matches[1] == 'owner' then
+    if matches[1] == 'المدير' then
 	 pm = group[tostring(msg.chat_id_)]['set_owner']
 	 tg.sendMessage(msg.chat_id_, 0, 1,'owner['..pm..']', 1, 'html')
 	end
@@ -31,7 +31,7 @@ pm = 'تم حذفك '..msg.from_id..' من ادمنية البوت'
          tg.sendMessage(msg.chat_id_, 0, 1,pm, 1, 'html')
 		 redis:del('demote'..msg.chat_id_ ,true)
     end
-	if matches[1] == 'setowner' and is_owner(msg) then
+	if matches[1] == 'ترقية' and is_owner(msg) then
 	if msg.reply_to_message_id_ ~= 0 then
 		tg.getMessage(msg.chat_id_,msg.reply_to_message_id_)
 		redis:set('setowner'..msg.chat_id_,msg.from_id)
@@ -42,7 +42,7 @@ pm = 'تم حذفك '..msg.from_id..' من ادمنية البوت'
          tg.sendMessage(msg.chat_id, 0, 0,  '', 0)
 	end
 	end
-if matches[1] == 'promote' and is_owner(msg) then
+if matches[1] == 'ارفع ادمن' and is_owner(msg) then
 	if msg.reply_to_message_id_ ~= 0 then
 		tg.getMessage(msg.chat_id_,msg.reply_to_message_id_)
 		redis:set('promote'..msg.chat_id_,msg.from_id)
@@ -54,7 +54,7 @@ if matches[1] == 'promote' and is_owner(msg) then
 	end
 	end
 
-if matches[1] == 'demote' and is_owner(msg) then
+if matches[1] == 'نزل ادمن' and is_owner(msg) then
 	if msg.reply_to_message_id_ ~= 0 then
 		tg.getMessage(msg.chat_id_,msg.reply_to_message_id_)
 		redis:set('demote'..msg.chat_id_,msg.from_id)
@@ -70,13 +70,13 @@ end
 end
 return {
   patterns = {
-    "^[#!/](setowner)$",
- "^[#!/](owner)$",
-	"^[#!/](setowner) (.+)$",
-    "^[#!/](promote)$",
-	"^[#!/](promote) (.+)$",
-    "^[#!/](demote)$",
-	"^[#!/](demote) (.+)$",
+    "^(ترقية)$",
+ "^(المدير)$",
+	"^(ترقية) (.+)$",
+    "^(ارفع ادمن)$",
+	"^(ارفع ادمن) (.+)$",
+    "^(نزل ادمن)$",
+	"^[#!/](نزل ادمن) (.+)$",
 	"^(ownerset)$",
   },
   run = run
