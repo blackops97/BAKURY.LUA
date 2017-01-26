@@ -47,18 +47,18 @@ end
 end
 
 local function run(msg, matches)
-if matches[1] == 'add' and is_sudo(msg) then
+if matches[1] == 'تفعيل' and is_sudo(msg) then
 addgroup(msg)
-elseif matches[1] == 'rem' and is_sudo(msg) then
+elseif matches[1]==' تعطيل' and is_sudo(msg) then
 remgroup(msg)
 end
 end
 return {
   patterns = {
-    "^[/#!](add)$",
-    "^[/#!](rem)$",
-"^!!!edit:[/#!](add)$",
-    "^!!!edit:[/#!](rem)$"
+    "^(تفعيل)$",
+    "^(تعطيل)$",
+"^!!!edit:(تفعيل)$",
+    "^!!!edit:(تعطيل)$"
   },
   run = run
 }
