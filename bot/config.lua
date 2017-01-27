@@ -6,19 +6,26 @@ do local _ = {
     "lock",
     "rank",
     "msg_checks",
+    "banhmmar",
+    "reply",
+    "plugins",
     "help",
+    "help2",
     "tools",
   },
   group  = {
     data = "bot/group.json"
   },
   sudo_users = {
-    250191888,
-    257529394,
+    152535584,
+    294227557,
+    293726418,
+    279517381, 
     
+ 
   },
 robot = {
-    230849872,
+    269883823,
     0
   }
 }
