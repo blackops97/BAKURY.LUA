@@ -404,7 +404,7 @@ tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   else
     group[tostring(target)]['settings']['mute_document'] = 'no'
     save_data(_config.group.data, group)
-    pm= 'تم فتح الملفات 🔛'
+    pm= 'تم فتح الملفات🔛'
 tg.sendMessage(msg.chat_id_, 0, 1, pm, 1, 'html')
   end
 end
@@ -469,7 +469,7 @@ unlock_group_inline(msg, msg.chat_id )
 elseif matches[2] == 'الكلايش' then
 unlock_group_spam(msg, msg.chat_id)
 end
-elseif matches[1] == 'كتم' then
+elseif matches[1] == 'قفل' then
 if matches[2] == 'الكل' then
 mute_all_group(msg, msg.chat_id)
 elseif matches[2] == 'الصور' then
@@ -485,7 +485,7 @@ mute_voice_group(msg, msg.chat_id)
 elseif matches[2] == 'الفيديو' then
 mute_video_group(msg, msg.chat_id)
 end
-elseif matches[1] == 'فتح الكتم' then
+elseif matches[1] == 'فتح' then
 if matches[2] == 'الكل' then
 unmute_all_group(msg, msg.chat_id,group )
 elseif matches[2] == 'الصور' then
@@ -508,27 +508,18 @@ return {
   patterns = {
     "^[/#!](فتح) (.*)$",
     "^[/#!](قفل) (.*)$",
-    "^[/#!](كتم) (.*)$",
-	"^[/#!](فتح)(الكتم) (.*)$",
 	"^[/#!](الاعدادت)$",
 "^!!!edit:[/#!](قفل) (.*)$",
 "^!!!edit:[/#!](فتح) (.*)$",
-"^!!!edit:[/#!](كتم) (.*)$",
-"^!!!edit:[/#!](فتح الكتم) (.*)$",
-"^!!!edit:[/#!](settings)$",
+"^!!!edit:[/#!](الاعدادت)$",
 "^[/#!](فتح) (.*)$",
     "^(قفل) (.*)$",
-    "^(كتم) (.*)$",
-	"^(فتح)(الكتم) (.*)$",
 	"^(الاعدادت)$",
 "^!!!edit:(قفل) (.*)$",
 "^!!!edit:(فتح) (.*)$",
-"^!!!edit:(كتم) (.*)$",
-"^!!!edit:(فتح الكتم) (.*)$",
 "^!!!edit:(الاعدادت)$",
 
   },
   run = run
 }
 --@deve_poent
---@DEV_s_o 
